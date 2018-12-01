@@ -2,7 +2,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import GroceryItem from "./GroceryItem";
-import store, { toggleGrocery } from '../store'
+import store, { toggleGrocery, setQuantity } from '../store'
 
 const mapStateToProps = (state) => {
   return {
@@ -12,15 +12,17 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     //calls dispatch with addGrocery
-    toggle: (id) => dispatch(toggleGrocery(id))
+    toggle: (id) => dispatch(toggleGrocery(id)),
+    setQuantity: (event) => {
+      dispatch(setQuantity(event.target.value))
+    }
   }
 }
 const GroceryList = (props) => {
-  console.log(props)
   return (
     <ul>
       {props.groceries.map(grocery => (
-        <GroceryItem key={grocery.id} onClick={() => props.toggle(grocery.id)}{...grocery} />
+        <GroceryItem key={grocery.id} onchange={props.setQuantity} onClick={() => props.toggle(grocery.id)}{...grocery} />
       ))}
     </ul>
   )

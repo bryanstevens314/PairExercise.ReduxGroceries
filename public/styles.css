@@ -15,6 +15,22 @@ li {
   font-size: 20px;
   margin-bottom: 5px;
 }
+.footer{
+display:flex;
+}
+a{
+  margin-right:5px;
+}
+.quantityDiv{
+  display:flex;
+  float:right;
+}
+select{
+
+}
+li{
+  display:inline-block;
+}
 
 .app {
   display: flex;
